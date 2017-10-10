@@ -3,23 +3,23 @@ Tank.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000000e  00800100  00000508  0000059c  2**0
+  0 .data         0000000e  00800100  00000526  000005ba  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000508  00000000  00000000  00000094  2**1
+  1 .text         00000526  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000004  0080010e  0080010e  000005aa  2**0
+  2 .bss          00000004  0080010e  0080010e  000005c8  2**0
                   ALLOC
-  3 .comment      00000011  00000000  00000000  000005aa  2**0
+  3 .comment      00000011  00000000  00000000  000005c8  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000005bc  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000005dc  2**2
                   CONTENTS, READONLY
-  5 .debug_info   000005f4  00000000  00000000  000005fc  2**0
+  5 .debug_info   000005f4  00000000  00000000  0000061c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000005a2  00000000  00000000  00000bf0  2**0
+  6 .debug_abbrev 000005a2  00000000  00000000  00000c10  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000001a  00000000  00000000  00001192  2**0
+  7 .debug_line   0000001a  00000000  00000000  000011b2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_str    00000208  00000000  00000000  000011ac  2**0
+  8 .debug_str    00000208  00000000  00000000  000011cc  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -64,7 +64,7 @@ Disassembly of section .text:
   74:	11 e0       	ldi	r17, 0x01	; 1
   76:	a0 e0       	ldi	r26, 0x00	; 0
   78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	e8 e0       	ldi	r30, 0x08	; 8
+  7a:	e6 e2       	ldi	r30, 0x26	; 38
   7c:	f5 e0       	ldi	r31, 0x05	; 5
   7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
   80:	05 90       	lpm	r0, Z+
@@ -86,8 +86,8 @@ Disassembly of section .text:
   94:	a2 31       	cpi	r26, 0x12	; 18
   96:	b2 07       	cpc	r27, r18
   98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
-  9a:	0e 94 63 02 	call	0x4c6	; 0x4c6 <main>
-  9e:	0c 94 82 02 	jmp	0x504	; 0x504 <_exit>
+  9a:	0e 94 67 02 	call	0x4ce	; 0x4ce <main>
+  9e:	0c 94 91 02 	jmp	0x522	; 0x522 <_exit>
 
 000000a2 <__bad_interrupt>:
   a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -361,10 +361,10 @@ Disassembly of section .text:
 000002e8 <initCannon>:
  2e8:	52 98       	cbi	0x0a, 2	; 10
  2ea:	53 98       	cbi	0x0a, 3	; 10
- 2ec:	3d 98       	cbi	0x07, 5	; 7
+ 2ec:	20 98       	cbi	0x04, 0	; 4
  2ee:	5a 98       	cbi	0x0b, 2	; 11
  2f0:	5b 98       	cbi	0x0b, 3	; 11
- 2f2:	45 98       	cbi	0x08, 5	; 8
+ 2f2:	28 9a       	sbi	0x05, 0	; 5
  2f4:	87 b1       	in	r24, 0x07	; 7
  2f6:	87 60       	ori	r24, 0x07	; 7
  2f8:	87 b9       	out	0x07, r24	; 7
@@ -388,12 +388,12 @@ Disassembly of section .text:
  318:	0f 92       	push	r0
  31a:	11 24       	eor	r1, r1
  31c:	8f 93       	push	r24
- 31e:	e8 98       	cbi	0x1d, 0	; 29
- 320:	88 b1       	in	r24, 0x08	; 8
- 322:	88 b9       	out	0x08, r24	; 8
- 324:	40 9a       	sbi	0x08, 0	; 8
- 326:	e9 9a       	sbi	0x1d, 1	; 29
- 328:	a8 95       	wdr
+ 31e:	a8 95       	wdr
+ 320:	e8 98       	cbi	0x1d, 0	; 29
+ 322:	88 b1       	in	r24, 0x08	; 8
+ 324:	88 b9       	out	0x08, r24	; 8
+ 326:	40 9a       	sbi	0x08, 0	; 8
+ 328:	e9 9a       	sbi	0x1d, 1	; 29
  32a:	8f 91       	pop	r24
  32c:	0f 90       	pop	r0
  32e:	0f be       	out	0x3f, r0	; 63
@@ -410,20 +410,20 @@ Disassembly of section .text:
  340:	8f 93       	push	r24
  342:	ef 93       	push	r30
  344:	ff 93       	push	r31
- 346:	e9 98       	cbi	0x1d, 1	; 29
- 348:	41 98       	cbi	0x08, 1	; 8
- 34a:	42 9a       	sbi	0x08, 2	; 8
- 34c:	e8 e6       	ldi	r30, 0x68	; 104
- 34e:	f0 e0       	ldi	r31, 0x00	; 0
- 350:	80 81       	ld	r24, Z
- 352:	81 60       	ori	r24, 0x01	; 1
- 354:	80 83       	st	Z, r24
- 356:	eb e6       	ldi	r30, 0x6B	; 107
- 358:	f0 e0       	ldi	r31, 0x00	; 0
- 35a:	80 81       	ld	r24, Z
- 35c:	80 62       	ori	r24, 0x20	; 32
- 35e:	80 83       	st	Z, r24
- 360:	a8 95       	wdr
+ 346:	a8 95       	wdr
+ 348:	e9 98       	cbi	0x1d, 1	; 29
+ 34a:	41 98       	cbi	0x08, 1	; 8
+ 34c:	42 9a       	sbi	0x08, 2	; 8
+ 34e:	e8 e6       	ldi	r30, 0x68	; 104
+ 350:	f0 e0       	ldi	r31, 0x00	; 0
+ 352:	80 81       	ld	r24, Z
+ 354:	81 60       	ori	r24, 0x01	; 1
+ 356:	80 83       	st	Z, r24
+ 358:	eb e6       	ldi	r30, 0x6B	; 107
+ 35a:	f0 e0       	ldi	r31, 0x00	; 0
+ 35c:	80 81       	ld	r24, Z
+ 35e:	80 62       	ori	r24, 0x20	; 32
+ 360:	80 83       	st	Z, r24
  362:	ff 91       	pop	r31
  364:	ef 91       	pop	r30
  366:	8f 91       	pop	r24
@@ -442,18 +442,18 @@ Disassembly of section .text:
  37c:	8f 93       	push	r24
  37e:	ef 93       	push	r30
  380:	ff 93       	push	r31
- 382:	42 98       	cbi	0x08, 2	; 8
- 384:	e8 e6       	ldi	r30, 0x68	; 104
- 386:	f0 e0       	ldi	r31, 0x00	; 0
- 388:	80 81       	ld	r24, Z
- 38a:	8e 7f       	andi	r24, 0xFE	; 254
- 38c:	80 83       	st	Z, r24
- 38e:	eb e6       	ldi	r30, 0x6B	; 107
- 390:	f0 e0       	ldi	r31, 0x00	; 0
- 392:	80 81       	ld	r24, Z
- 394:	8f 7d       	andi	r24, 0xDF	; 223
- 396:	80 83       	st	Z, r24
- 398:	a8 95       	wdr
+ 382:	a8 95       	wdr
+ 384:	42 98       	cbi	0x08, 2	; 8
+ 386:	e8 e6       	ldi	r30, 0x68	; 104
+ 388:	f0 e0       	ldi	r31, 0x00	; 0
+ 38a:	80 81       	ld	r24, Z
+ 38c:	8e 7f       	andi	r24, 0xFE	; 254
+ 38e:	80 83       	st	Z, r24
+ 390:	eb e6       	ldi	r30, 0x6B	; 107
+ 392:	f0 e0       	ldi	r31, 0x00	; 0
+ 394:	80 81       	ld	r24, Z
+ 396:	8f 7d       	andi	r24, 0xDF	; 223
+ 398:	80 83       	st	Z, r24
  39a:	ff 91       	pop	r31
  39c:	ef 91       	pop	r30
  39e:	8f 91       	pop	r24
@@ -580,58 +580,70 @@ Disassembly of section .text:
  49c:	80 81       	ld	r24, Z
  49e:	8f 7d       	andi	r24, 0xDF	; 223
  4a0:	80 83       	st	Z, r24
- 4a2:	ff 91       	pop	r31
- 4a4:	ef 91       	pop	r30
- 4a6:	8f 91       	pop	r24
- 4a8:	0f 90       	pop	r0
- 4aa:	0f be       	out	0x3f, r0	; 63
- 4ac:	0f 90       	pop	r0
- 4ae:	1f 90       	pop	r1
- 4b0:	18 95       	reti
+ 4a2:	e0 e6       	ldi	r30, 0x60	; 96
+ 4a4:	f0 e0       	ldi	r31, 0x00	; 0
+ 4a6:	80 81       	ld	r24, Z
+ 4a8:	80 64       	ori	r24, 0x40	; 64
+ 4aa:	80 83       	st	Z, r24
+ 4ac:	ff 91       	pop	r31
+ 4ae:	ef 91       	pop	r30
+ 4b0:	8f 91       	pop	r24
+ 4b2:	0f 90       	pop	r0
+ 4b4:	0f be       	out	0x3f, r0	; 63
+ 4b6:	0f 90       	pop	r0
+ 4b8:	1f 90       	pop	r1
+ 4ba:	18 95       	reti
 
-000004b2 <initWatchdog>:
- 4b2:	a8 95       	wdr
- 4b4:	e0 e6       	ldi	r30, 0x60	; 96
- 4b6:	f0 e0       	ldi	r31, 0x00	; 0
- 4b8:	80 81       	ld	r24, Z
- 4ba:	80 64       	ori	r24, 0x40	; 64
- 4bc:	80 83       	st	Z, r24
- 4be:	80 81       	ld	r24, Z
- 4c0:	86 60       	ori	r24, 0x06	; 6
- 4c2:	80 83       	st	Z, r24
- 4c4:	08 95       	ret
+000004bc <initWatchdog>:
+ 4bc:	a8 95       	wdr
+ 4be:	e0 e6       	ldi	r30, 0x60	; 96
+ 4c0:	f0 e0       	ldi	r31, 0x00	; 0
+ 4c2:	80 81       	ld	r24, Z
+ 4c4:	88 61       	ori	r24, 0x18	; 24
+ 4c6:	80 83       	st	Z, r24
+ 4c8:	86 e4       	ldi	r24, 0x46	; 70
+ 4ca:	80 83       	st	Z, r24
+ 4cc:	08 95       	ret
 
-000004c6 <main>:
- 4c6:	f8 94       	cli
- 4c8:	0e 94 19 01 	call	0x232	; 0x232 <initUSART>
- 4cc:	0e 94 53 00 	call	0xa6	; 0xa6 <initMotors>
- 4d0:	0e 94 74 01 	call	0x2e8	; 0x2e8 <initCannon>
- 4d4:	25 9a       	sbi	0x04, 5	; 4
- 4d6:	24 9a       	sbi	0x04, 4	; 4
- 4d8:	87 b1       	in	r24, 0x07	; 7
- 4da:	87 60       	ori	r24, 0x07	; 7
- 4dc:	87 b9       	out	0x07, r24	; 7
- 4de:	83 b7       	in	r24, 0x33	; 51
- 4e0:	81 7f       	andi	r24, 0xF1	; 241
- 4e2:	83 bf       	out	0x33, r24	; 51
- 4e4:	83 b7       	in	r24, 0x33	; 51
- 4e6:	81 60       	ori	r24, 0x01	; 1
- 4e8:	83 bf       	out	0x33, r24	; 51
- 4ea:	80 e0       	ldi	r24, 0x00	; 0
- 4ec:	91 e0       	ldi	r25, 0x01	; 1
- 4ee:	0e 94 38 01 	call	0x270	; 0x270 <printString>
- 4f2:	78 94       	sei
- 4f4:	83 b7       	in	r24, 0x33	; 51
- 4f6:	81 60       	ori	r24, 0x01	; 1
- 4f8:	83 bf       	out	0x33, r24	; 51
- 4fa:	88 95       	sleep
+000004ce <main>:
+ 4ce:	0f b6       	in	r0, 0x3f	; 63
+ 4d0:	f8 94       	cli
+ 4d2:	a8 95       	wdr
+ 4d4:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__stack+0x7ff761>
+ 4d8:	88 61       	ori	r24, 0x18	; 24
+ 4da:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__stack+0x7ff761>
+ 4de:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__stack+0x7ff761>
+ 4e2:	0f be       	out	0x3f, r0	; 63
+ 4e4:	f8 94       	cli
+ 4e6:	0e 94 19 01 	call	0x232	; 0x232 <initUSART>
+ 4ea:	0e 94 53 00 	call	0xa6	; 0xa6 <initMotors>
+ 4ee:	0e 94 74 01 	call	0x2e8	; 0x2e8 <initCannon>
+ 4f2:	25 9a       	sbi	0x04, 5	; 4
+ 4f4:	24 9a       	sbi	0x04, 4	; 4
+ 4f6:	87 b1       	in	r24, 0x07	; 7
+ 4f8:	87 60       	ori	r24, 0x07	; 7
+ 4fa:	87 b9       	out	0x07, r24	; 7
  4fc:	83 b7       	in	r24, 0x33	; 51
- 4fe:	8e 7f       	andi	r24, 0xFE	; 254
+ 4fe:	81 7f       	andi	r24, 0xF1	; 241
  500:	83 bf       	out	0x33, r24	; 51
- 502:	f8 cf       	rjmp	.-16     	; 0x4f4 <main+0x2e>
+ 502:	83 b7       	in	r24, 0x33	; 51
+ 504:	81 60       	ori	r24, 0x01	; 1
+ 506:	83 bf       	out	0x33, r24	; 51
+ 508:	80 e0       	ldi	r24, 0x00	; 0
+ 50a:	91 e0       	ldi	r25, 0x01	; 1
+ 50c:	0e 94 38 01 	call	0x270	; 0x270 <printString>
+ 510:	78 94       	sei
+ 512:	83 b7       	in	r24, 0x33	; 51
+ 514:	81 60       	ori	r24, 0x01	; 1
+ 516:	83 bf       	out	0x33, r24	; 51
+ 518:	88 95       	sleep
+ 51a:	83 b7       	in	r24, 0x33	; 51
+ 51c:	8e 7f       	andi	r24, 0xFE	; 254
+ 51e:	83 bf       	out	0x33, r24	; 51
+ 520:	f8 cf       	rjmp	.-16     	; 0x512 <main+0x44>
 
-00000504 <_exit>:
- 504:	f8 94       	cli
+00000522 <_exit>:
+ 522:	f8 94       	cli
 
-00000506 <__stop_program>:
- 506:	ff cf       	rjmp	.-2      	; 0x506 <__stop_program>
+00000524 <__stop_program>:
+ 524:	ff cf       	rjmp	.-2      	; 0x524 <__stop_program>

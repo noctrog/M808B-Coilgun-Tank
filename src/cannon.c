@@ -13,10 +13,11 @@ void initCannon()
 	SENSOR1_DDR &= ~(1 << SENSOR1);
 	SENSOR2_DDR &= ~(1 << SENSOR2);
 	SENSOR3_DDR &= ~(1 << SENSOR3);
-	// input no pull down
+	// input no pull up
 	SENSOR1_PORT &= ~(1 << SENSOR1);
 	SENSOR2_PORT &= ~(1 << SENSOR2);
-	SENSOR3_PORT &= ~(1 << SENSOR3);
+	// input pull up
+	SENSOR3_PORT |= (1 << SENSOR3);
 
 	// Set coils to output
 	COILS_DDR |= (1 << COIL1) | (1 << COIL2) | (1 << COIL3);
@@ -43,6 +44,9 @@ void initCannon()
 // sensor1 interrupt
 ISR(INT0_vect)
 {
+	// clear watchdog
+	wdt_reset();
+
 	// turn off first sensor
 	EIMSK &= ~(1 << INT0);
 	// turn off first coil
@@ -51,14 +55,14 @@ ISR(INT0_vect)
 	COILS_PORT |= COIL2;
 	// turn on second sensor
 	EIMSK |= (1 << INT1);
-
-	// clear watchdog
-	wdt_reset();
 }
 
 // sensor2 interrupt
 ISR(INT1_vect)
 {
+	// clear watchdog
+	wdt_reset();
+
 	// turn off second sensor
 	EIMSK &= ~(1 << INT1);
 	// turn off second coil
@@ -69,15 +73,15 @@ ISR(INT1_vect)
 	// enable PCICR0 (PCINT0-7)
 	PCICR |= (1 << PCIE0);
 	// enable PCINT5 (PC5)
-	PCMSK0 |= (1 <<PCINT5);
-
-	// clear watchdog
-	wdt_reset();
+	PCMSK0 |= (1 << PCINT5);
 }
 
 // sensor3 interrupt
 ISR(PCINT0_vect)
 {
+	// clear watchdog
+	wdt_reset();
+
 	// turn off third coil
 	COILS_PORT &= ~(1 << COIL3);
 	// turn off third sensor
@@ -85,7 +89,4 @@ ISR(PCINT0_vect)
 	PCICR &= ~(1 << PCIE0);
 	// disable PCINT5 (PC5)
 	PCMSK0 &= ~(1 << PCINT5);
-
-	// clear watchdog
-	wdt_reset();
 }

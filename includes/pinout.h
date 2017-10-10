@@ -14,13 +14,13 @@
 // Sensors
 #define SENSOR1_DDR				DDRD
 #define SENSOR2_DDR				DDRD
-#define SENSOR3_DDR				DDRC
+#define SENSOR3_DDR				DDRB
 #define SENSOR1_PORT			PORTD
 #define SENSOR2_PORT			PORTD
-#define SENSOR3_PORT			PORTC
+#define SENSOR3_PORT			PORTB
 #define SENSOR1					PD2
 #define SENSOR2					PD3
-#define SENSOR3					PC5
+#define SENSOR3					PB0
 
 // Coils
 #define COILS_DDR				DDRC

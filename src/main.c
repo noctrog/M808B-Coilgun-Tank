@@ -108,6 +108,9 @@ ISR(WDT_vect)
 	EIMSK &= ~(1 << INT1);
 	PCICR &= ~(1 << PCIE0);
 	PCMSK0 &= ~(1 << PCINT5);
+
+	// re configure watchdog
+	WDTCSR |= (1 << WDIE);
 }
 
 // watchdog used to turn off continuously the coils in case something goes wrong
@@ -115,14 +118,14 @@ void initWatchdog()
 {
 	wdt_reset();
 	// enable watchdog interrupts
-	WDTCSR |= (1 << WDIE);
+	WDTCSR |= (1 << WDCE) | (1 << WDE);
 	// timer overflow every 1.0s
-	WDTCSR |= (1 << WDP1) | (1 << WDP2);
+	WDTCSR = (1<<WDIE) | (1 << WDP1) | (1 << WDP2);
 }
 
 int main()
 {
-
+	wdt_disable();
 	// disable interrupts while initializing
 	cli();
 
