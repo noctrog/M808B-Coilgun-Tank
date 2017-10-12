@@ -129,7 +129,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x526
+.text           0x0000000000000000      0x5ac
  *(.vectors)
  .vectors       0x0000000000000000       0x68 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
                 0x0000000000000000                __vectors
@@ -217,103 +217,103 @@ END GROUP
                 0x00000000000000a6                . = ALIGN (0x2)
  *(.text.*)
  .text.initMotors
-                0x00000000000000a6       0x90 ./src/Motors.o
+                0x00000000000000a6       0x92 ./src/Motors.o
                 0x00000000000000a6                initMotors
  .text.refreshLeftMotor
-                0x0000000000000136       0x1c ./src/Motors.o
-                0x0000000000000136                refreshLeftMotor
+                0x0000000000000138       0x26 ./src/Motors.o
+                0x0000000000000138                refreshLeftMotor
  .text.refreshRightMotor
-                0x0000000000000152       0x1c ./src/Motors.o
-                0x0000000000000152                refreshRightMotor
+                0x000000000000015e       0x26 ./src/Motors.o
+                0x000000000000015e                refreshRightMotor
  .text.refreshHorizontalMotor
-                0x000000000000016e       0x62 ./src/Motors.o
-                0x000000000000016e                refreshHorizontalMotor
+                0x0000000000000184       0x78 ./src/Motors.o
+                0x0000000000000184                refreshHorizontalMotor
  .text.refreshVerticalMotor
-                0x00000000000001d0       0x62 ./src/Motors.o
-                0x00000000000001d0                refreshVerticalMotor
+                0x00000000000001fc       0x78 ./src/Motors.o
+                0x00000000000001fc                refreshVerticalMotor
  .text.initUSART
-                0x0000000000000232       0x22 ./src/USART.o
-                0x0000000000000232                initUSART
+                0x0000000000000274       0x22 ./src/USART.o
+                0x0000000000000274                initUSART
  .text.transmitByte
-                0x0000000000000254        0xe ./src/USART.o
-                0x0000000000000254                transmitByte
+                0x0000000000000296        0xe ./src/USART.o
+                0x0000000000000296                transmitByte
  .text.receiveByte
-                0x0000000000000262        0xe ./src/USART.o
-                0x0000000000000262                receiveByte
+                0x00000000000002a4        0xe ./src/USART.o
+                0x00000000000002a4                receiveByte
  .text.printString
-                0x0000000000000270       0x26 ./src/USART.o
-                0x0000000000000270                printString
+                0x00000000000002b2       0x26 ./src/USART.o
+                0x00000000000002b2                printString
  .text.readString
-                0x0000000000000296       0x52 ./src/USART.o
-                0x0000000000000296                readString
+                0x00000000000002d8       0x5c ./src/USART.o
+                0x00000000000002d8                readString
  .text.initCannon
-                0x00000000000002e8       0x2a ./src/cannon.o
-                0x00000000000002e8                initCannon
+                0x0000000000000334       0x2a ./src/cannon.o
+                0x0000000000000334                initCannon
  .text.__vector_1
-                0x0000000000000312       0x24 ./src/cannon.o
-                0x0000000000000312                __vector_1
+                0x000000000000035e       0x24 ./src/cannon.o
+                0x000000000000035e                __vector_1
  .text.__vector_2
-                0x0000000000000336       0x3c ./src/cannon.o
-                0x0000000000000336                __vector_2
+                0x0000000000000382       0x3c ./src/cannon.o
+                0x0000000000000382                __vector_2
  .text.__vector_3
-                0x0000000000000372       0x38 ./src/cannon.o
-                0x0000000000000372                __vector_3
+                0x00000000000003be       0x38 ./src/cannon.o
+                0x00000000000003be                __vector_3
  .text.__vector_18
-                0x00000000000003aa       0xca ./src/main.o
-                0x00000000000003aa                __vector_18
+                0x00000000000003f6       0xca ./src/main.o
+                0x00000000000003f6                __vector_18
  .text.__vector_6
-                0x0000000000000474       0x48 ./src/main.o
-                0x0000000000000474                __vector_6
+                0x00000000000004c0       0x74 ./src/main.o
+                0x00000000000004c0                __vector_6
  .text.initWatchdog
-                0x00000000000004bc       0x12 ./src/main.o
-                0x00000000000004bc                initWatchdog
+                0x0000000000000534       0x12 ./src/main.o
+                0x0000000000000534                initWatchdog
  .text.startup.main
-                0x00000000000004ce       0x54 ./src/main.o
-                0x00000000000004ce                main
+                0x0000000000000546       0x62 ./src/main.o
+                0x0000000000000546                main
  .text.libgcc.mul
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.div
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
- .text.libgcc   0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc   0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
-                0x0000000000000522                . = ALIGN (0x2)
+                0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+                0x00000000000005a8                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000522        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
-                0x0000000000000522                exit
-                0x0000000000000522                _exit
+ .fini9         0x00000000000005a8        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+                0x00000000000005a8                exit
+                0x00000000000005a8                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -332,11 +332,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000522        0x4 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .fini0         0x00000000000005a8        0x4 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000526                _etext = .
+                0x00000000000005ac                _etext = .
 
-.data           0x0000000000800100        0xe load address 0x0000000000000526
+.data           0x0000000000800100       0x18 load address 0x00000000000005ac
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800100        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
@@ -351,39 +351,39 @@ END GROUP
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x0000000000800100        0xd ./src/main.o
+                0x0000000000800100       0x17 ./src/main.o
  *(.gnu.linkonce.d*)
-                0x000000000080010e                . = ALIGN (0x2)
- *fill*         0x000000000080010d        0x1 
-                0x000000000080010e                _edata = .
-                0x000000000080010e                PROVIDE (__data_end, .)
+                0x0000000000800118                . = ALIGN (0x2)
+ *fill*         0x0000000000800117        0x1 
+                0x0000000000800118                _edata = .
+                0x0000000000800118                PROVIDE (__data_end, .)
 
-.bss            0x000000000080010e        0x4
-                0x000000000080010e                PROVIDE (__bss_start, .)
+.bss            0x0000000000800118        0x4
+                0x0000000000800118                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x000000000080010e        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
- .bss           0x000000000080010e        0x0 ./src/Motors.o
- .bss           0x000000000080010e        0x0 ./src/USART.o
- .bss           0x000000000080010e        0x0 ./src/cannon.o
- .bss           0x000000000080010e        0x0 ./src/main.o
- .bss           0x000000000080010e        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
- .bss           0x000000000080010e        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
- .bss           0x000000000080010e        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000800118        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega328p.o
+ .bss           0x0000000000800118        0x0 ./src/Motors.o
+ .bss           0x0000000000800118        0x0 ./src/USART.o
+ .bss           0x0000000000800118        0x0 ./src/cannon.o
+ .bss           0x0000000000800118        0x0 ./src/main.o
+ .bss           0x0000000000800118        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_exit.o)
+ .bss           0x0000000000800118        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_copy_data.o)
+ .bss           0x0000000000800118        0x0 /opt/arduino-1.6.12/hardware/tools/avr/bin/../lib/gcc/avr/4.9.2/avr5/libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x000000000080010e        0x4 ./src/Motors.o
-                0x000000000080010e                horizServoPos
-                0x0000000000800110                vertServoPos
-                0x0000000000800112                PROVIDE (__bss_end, .)
-                0x0000000000000526                __data_load_start = LOADADDR (.data)
-                0x0000000000000534                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0000000000800118        0x4 ./src/Motors.o
+                0x0000000000800118                horizServoPos
+                0x000000000080011a                vertServoPos
+                0x000000000080011c                PROVIDE (__bss_end, .)
+                0x00000000000005ac                __data_load_start = LOADADDR (.data)
+                0x00000000000005c4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800112        0x0
-                0x0000000000800112                PROVIDE (__noinit_start, .)
+.noinit         0x000000000080011c        0x0
+                0x000000000080011c                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0000000000800112                PROVIDE (__noinit_end, .)
-                0x0000000000800112                _end = .
-                0x0000000000800112                PROVIDE (__heap_start, .)
+                0x000000000080011c                PROVIDE (__noinit_end, .)
+                0x000000000080011c                _end = .
+                0x000000000080011c                PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
  *(.eeprom*)

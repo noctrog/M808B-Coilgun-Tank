@@ -111,21 +111,26 @@ ISR(WDT_vect)
 
 	// re configure watchdog
 	WDTCSR |= (1 << WDIE);
+
+	printString("Watchdog\n");
 }
 
 // watchdog used to turn off continuously the coils in case something goes wrong
 void initWatchdog()
 {
-	wdt_reset();
-	// enable watchdog interrupts
-	WDTCSR |= (1 << WDCE) | (1 << WDE);
-	// timer overflow every 1.0s
-	WDTCSR = (1<<WDIE) | (1 << WDP1) | (1 << WDP2);
+	asm("wdr");
+
+	WDTCSR |= (1<<WDE) | (1<<WDCE);
+	WDTCSR = (1<<WDIE) | (1<<WDP2) | (1<<WDP1);
 }
 
 int main()
 {
-	wdt_disable();
+    //disable watchdog if enabled
+    wdt_reset();
+    MCUSR=0;
+    WDTCSR|=_BV(WDCE) | _BV(WDE);
+    WDTCSR=0;
 	// disable interrupts while initializing
 	cli();
 
@@ -143,6 +148,8 @@ int main()
 
 	printString("BT funciona!");
 	// enable interrupts
+
+	initWatchdog();
 	sei();
 
 	while(1)
