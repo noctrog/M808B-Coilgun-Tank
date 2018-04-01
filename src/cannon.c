@@ -7,6 +7,8 @@
 
 #include <common.h>
 
+#define DEBUG
+
 void initCannon()
 {
 	// Set sensors to input
@@ -55,6 +57,10 @@ ISR(INT0_vect)
 	COILS_PORT |= COIL2;
 	// turn on second sensor
 	EIMSK |= (1 << INT1);
+
+#ifdef DEBUG
+				printString("Bobina 2\n");
+#endif
 }
 
 // sensor2 interrupt
@@ -74,6 +80,9 @@ ISR(INT1_vect)
 	PCICR |= (1 << PCIE0);
 	// enable PCINT5 (PC5)
 	PCMSK0 |= (1 << PCINT5);
+#ifdef DEBUG
+				printString("Bobina 3\n");
+#endif
 }
 
 // sensor3 interrupt
@@ -89,4 +98,7 @@ ISR(PCINT0_vect)
 	PCICR &= ~(1 << PCIE0);
 	// disable PCINT5 (PC5)
 	PCMSK0 &= ~(1 << PCINT5);
+#ifdef DEBUG
+				printString("Bobina 3 apagada\n");
+#endif
 }

@@ -1,3 +1,4 @@
+#define DEBUG
 #include <common.h>
 #include <util/delay.h>
 
@@ -73,6 +74,9 @@ ISR(USART_RX_vect)
 				COILS_PORT |= (1 <<COIL1);
 				// Turn on first sensor
 				EIMSK |= (1 << INT0);
+#ifdef DEBUG
+				printString("Bobina 1\n");
+#endif
 				break;
 		}
 	}
@@ -112,7 +116,8 @@ ISR(WDT_vect)
 	// re configure watchdog
 	WDTCSR |= (1 << WDIE);
 
-	printString("Watchdog\n");
+	// debug
+	//printString("Watchdog\n");
 }
 
 // watchdog used to turn off continuously the coils in case something goes wrong
@@ -131,12 +136,13 @@ int main()
     MCUSR=0;
     WDTCSR|=_BV(WDCE) | _BV(WDE);
     WDTCSR=0;
+
 	// disable interrupts while initializing
 	cli();
 
-	initUSART();
 
 	// init peripherals
+	initUSART();
 	initMotors();
 	initCannon();
 	LASER_DDR |= (1 << LASER);
