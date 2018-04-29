@@ -1,4 +1,3 @@
-src/USART.o: ../src/USART.c \
- /home/ramon/Documents/Programming/workspace/Tank/includes/USART.h
+src/USART.o: ../src/USART.c ../src/../includes/USART.h
 
-/home/ramon/Documents/Programming/workspace/Tank/includes/USART.h:
+../src/../includes/USART.h:

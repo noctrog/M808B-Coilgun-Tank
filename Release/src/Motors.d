@@ -1,19 +1,16 @@
-src/Motors.o: ../src/Motors.c \
- /home/ramon/Documents/Programming/workspace/Tank/includes/Motors.h \
- /home/ramon/Documents/Programming/workspace/Tank/includes/common.h \
- /home/ramon/Documents/Programming/workspace/Tank/includes/USART.h \
- /home/ramon/Documents/Programming/workspace/Tank/includes/pinout.h \
- /home/ramon/Documents/Programming/workspace/Tank/includes/Motors.h \
- /home/ramon/Documents/Programming/workspace/Tank/includes/cannon.h
+src/Motors.o: ../src/Motors.c ../src/../includes/Motors.h \
+ ../src/../includes/common.h ../src/../includes/USART.h \
+ ../src/../includes/pinout.h ../src/../includes/Motors.h \
+ ../src/../includes/cannon.h
 
-/home/ramon/Documents/Programming/workspace/Tank/includes/Motors.h:
+../src/../includes/Motors.h:
 
-/home/ramon/Documents/Programming/workspace/Tank/includes/common.h:
+../src/../includes/common.h:
 
-/home/ramon/Documents/Programming/workspace/Tank/includes/USART.h:
+../src/../includes/USART.h:
 
-/home/ramon/Documents/Programming/workspace/Tank/includes/pinout.h:
+../src/../includes/pinout.h:
 
-/home/ramon/Documents/Programming/workspace/Tank/includes/Motors.h:
+../src/../includes/Motors.h:
 
-/home/ramon/Documents/Programming/workspace/Tank/includes/cannon.h:
+../src/../includes/cannon.h:

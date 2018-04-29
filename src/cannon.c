@@ -15,7 +15,8 @@ void initCannon()
 	SENSOR1_DDR &= ~(1 << SENSOR1);
 	SENSOR2_DDR &= ~(1 << SENSOR2);
 	SENSOR3_DDR &= ~(1 << SENSOR3);
-	// input no pull up
+
+	// input pull-up
 	SENSOR1_PORT &= ~(1 << SENSOR1);
 	SENSOR2_PORT &= ~(1 << SENSOR2);
 	// input pull up
@@ -31,9 +32,9 @@ void initCannon()
 	// (will be enabled when 'F' is received
 	//EIMSK |= (1 << INT0) | (1 << INT1);
 
-	// Trigger INT0 and INT1 on rising edge
-	EICRA |= (1 << ISC01) | (1 << ISC00);
-	EICRA |= (1 << ISC11) | (1 << ISC10);
+	// Trigger INT0 and INT1 on logical change
+	EICRA |= (0 << ISC01) | (1 << ISC00);
+	EICRA |= (0 << ISC11) | (1 << ISC10);
 
 	// configure interrupt for sensor3 (PCINT5)
 	// (will be enabled by sensor2 interrupt)
@@ -59,7 +60,7 @@ ISR(INT0_vect)
 	EIMSK |= (1 << INT1);
 
 #ifdef DEBUG
-				printString("Bobina 2\n");
+	printString("Bobina 2\n");
 #endif
 }
 

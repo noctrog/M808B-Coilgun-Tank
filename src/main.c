@@ -2,38 +2,6 @@
 #include "../includes/common.h"
 #include <util/delay.h>
 
-  /*      ________
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-		_|        |_
-       |_|        |_|
-         |________|
-*/
-
 #define F_CPU 7372800
 
 ISR(USART_RX_vect)
@@ -117,7 +85,7 @@ ISR(WDT_vect)
 	WDTCSR |= (1 << WDIE);
 
 	// debug
-	//printString("Watchdog\n");
+	printString("Watchdog\n");
 }
 
 // watchdog used to turn off continuously the coils in case something goes wrong
@@ -153,8 +121,8 @@ int main()
 	sleep_enable();
 
 	printString("BT funciona!");
-	// enable interrupts
 
+	// enable interrupts
 	initWatchdog();
 	sei();
 

@@ -31,61 +31,60 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-Tank.lss \
+M808B-Coilgun-Tank.lss \
 
 FLASH_IMAGE += \
-Tank.hex \
+M808B-Coilgun-Tank.hex \
 
 EEPROM_IMAGE += \
-Tank.eep \
+M808B-Coilgun-Tank.eep \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: Tank.elf secondary-outputs
+all: M808B-Coilgun-Tank.elf secondary-outputs
 
 # Tool invocations
-Tank.elf: $(OBJS) $(USER_OBJS)
+M808B-Coilgun-Tank.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,Tank.map -mmcu=atmega328p -o "Tank.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-gcc -Wl,-Map,M808B-Coilgun-Tank.map -mmcu=atmega328p -o "M808B-Coilgun-Tank.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-Tank.lss: Tank.elf
+M808B-Coilgun-Tank.lss: M808B-Coilgun-Tank.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S Tank.elf  >"Tank.lss"
+	-avr-objdump -h -S M808B-Coilgun-Tank.elf  >"M808B-Coilgun-Tank.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Tank.hex: Tank.elf
+M808B-Coilgun-Tank.hex: M808B-Coilgun-Tank.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Tank.elf  "Tank.hex"
+	-avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex M808B-Coilgun-Tank.elf  "M808B-Coilgun-Tank.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Tank.eep: Tank.elf
+M808B-Coilgun-Tank.eep: M808B-Coilgun-Tank.elf
 	@echo 'Create eeprom image (ihex format)'
-	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Tank.elf  "Tank.eep"
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex M808B-Coilgun-Tank.elf  "M808B-Coilgun-Tank.eep"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: Tank.elf
+sizedummy: M808B-Coilgun-Tank.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega328p Tank.elf
+	-avr-size --format=avr --mcu=atmega328p M808B-Coilgun-Tank.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) Tank.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) M808B-Coilgun-Tank.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
-.SECONDARY:
 
 -include ../makefile.targets
